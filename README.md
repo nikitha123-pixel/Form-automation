@@ -110,6 +110,12 @@ Matches: `Email`, `Email ID`, `Email address *`
                               └───────────────┘
 ```
 
+Sample:
+
+https://github.com/user-attachments/assets/630e14b1-dac2-4c14-b958-c0442eb5508b
+
+
+
 ## 🚀 Setup & Installation
 
 ### Prerequisites
@@ -164,6 +170,8 @@ curl -X POST http://localhost:3000/jobs/{jobId}/resume
 - Open `http://localhost:3000` in browser
 - Watch real-time job updates via WebSocket
 - Click job cards for detailed logs
+
+
 
 ## 🧪 Tested Forms
 
