@@ -1,0 +1,95 @@
+.job-progress-column {
+    width: 300px;
+    background-color: #f8fafc;
+    border-left: 1px solid #e2e8f0;
+    padding: 16px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.job-progress-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.job-progress-item.running {
+    color: #10b981;
+    font-weight: bold;
+}
+
+.job-progress-item.queued {
+    color: #f59e0b;
+}
+
+.job-progress-item.completed {
+    color: #3b82f6;
+}
+
+.job-progress-item.failed {
+    color: #ef4444;
+}
+
+.job-list-ui-card {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.job-list-ui-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.job-list-ui-badge.queued {
+    background-color: #6b7280;
+}
+
+.job-list-ui-badge.running {
+    background-color: #3b82f6;
+}
+
+.job-list-ui-badge.completed {
+    background-color: #10b981;
+}
+
+.job-list-ui-badge.failed {
+    background-color: #ef4444;
+}
+
+.job-list-ui-card.running {
+    border-left: 4px solid #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+}
+
+.job-list-ui-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+.job-list-ui-table th, .job-list-ui-table td {
+    border: 1px solid #e2e8f0;
+    padding: 12px;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.job-list-ui-table th {
+    background-color: #f3f4f6;
+    font-weight: bold;
+}
+
+.job-list-ui-table tr:nth-child(even) {
+    background-color: #f9fafb;
+}

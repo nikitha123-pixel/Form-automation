@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="dark-theme">
+    <div class="layout-wrapper">
+        <div id="main-ui">
+            <div class="app-layout">
+                <!-- LEFT PANEL: AI ASSISTANT -->
+                <aside class="assistant-panel">
+                    <header class="panel-header">
+                        <div class="assistant-info">
+                            <div class="assistant-avatar">🤖</div>
+                            <div>
+                                <h1>Automation Assistant</h1>
+                                <p class="status-container">
+                                    <span class="status-dot green" id="connection-dot"></span>
+                                    <span id="connection-status">Connecting...</span>
+                                </p>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="chat-container" id="chat-feed">
+                        <!-- Messages will be injected here -->
+                        <div class="chat-message assistant">
+                            <div class="bubble">
+                                Hello! I'm your Automation Assistant. I can help you automate web form submissions. What would
+                                you like to do today?
+                            </div>
+                        </div>
+
+                        <!-- Input Card Template (Initially Hidden or Injected by JS) -->
+                        <div class="chat-message assistant" id="input-card-message">
+                            <div class="bubble card-bubble">
+                                <p>I'm ready to automate your form. Please provide the details below:</p>
+                                <form id="job-form" class="assistant-form">
+                                    <div class="form-group">
+                                        <label for="formUrl">Form URL</label>
+                                        <input type="url" id="formUrl" name="formUrl" placeholder="https://example.com/form"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="userData">User Data (JSON)</label>
+                                        <textarea id="userData" name="userData" rows="4"
+                                            placeholder='{ "name": "John Doe", "email": "john@example.com" }'
+                                            required></textarea>
+                                    </div>
+                                    <button type="submit" id="submit-btn" class="primary-btn">Start Automation</button>
+                                    <div id="submit-msg" class="msg-feedback"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <footer class="assistant-footer">
+                        <div class="input-area">
+                            <input type="text" id="chat-input" placeholder="Type a message..." disabled>
+                            <button class="send-btn" disabled>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 2L11 13M22 2L15 22L11 13M11 13L2 9L22 2"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </footer>
+                </aside>
+
+                <!-- RIGHT PANEL: EXECUTION INTELLIGENCE -->
+                <main class="execution-panel">
+                    <header class="panel-header">
+                        <h2>Execution Intelligence</h2>
+                    </header>
+
+                    <div class="execution-content">
+                        <!-- Timeline Section -->
+                        <section class="execution-section timeline-section">
+                            <h3>Job Execution Timeline</h3>
+                            <div class="timeline" id="execution-timeline">
+                                <div class="timeline-step" data-step="QUEUED">
+                                    <div class="step-indicator"></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Queue Job</div>
+                                        <div class="step-desc">Job received and waiting for worker</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-step" data-step="INSPECTING">
+                                    <div class="step-indicator"></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Detect Form Fields</div>
+                                        <div class="step-desc">Analyzing form structure and input elements</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-step" data-step="FILLING">
+                                    <div class="step-indicator"></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Map & Fill Inputs</div>
+                                        <div class="step-desc">Mapping user data to detected fields</div>
+                                    </div>
+                                </div>
+                                <div class="timeline-step" data-step="SUBMITTING">
+                                    <div class="step-indicator"></div>
+                                    <div class="step-content">
+                                        <div class="step-title">Submit Form</div>
+                                        <div class="step-desc">Finalizing and confirming submission</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Logs Section -->
+                        <section class="execution-section logs-section">
+                            <div class="section-header">
+                                <h3>Live Logs</h3>
+                                <div class="log-actions">
+                                    <button id="clear-logs" class="text-btn">Clear</button>
+                                </div>
+                            </div>
+                            <div id="log-window" class="terminal-window">
+                                <!-- Logs will be injected here in groups -->
+                                <div class="log-group-container" id="log-groups">
+                                    <div class="empty-state">Waiting for execution to start...</div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Job List Section -->
+                        <section class="execution-section job-list-section">
+                            <h3>Job List</h3>
+                            <div id="job-list">
+                                <!-- Jobs will be dynamically injected here -->
+                            </div>
+                        </section>
+
+                        <!-- Active Job Stats/Details -->
+                        <section id="active-job-details" class="details-minimized">
+                            <!-- Dynamic details like missing fields will go here -->
+                        </section>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div id="job-progress-column">
+            <!-- JobProgressColumn will be rendered here -->
+        </div>
+    </div>
+
+
+
+    <div class="browser-status" id="browser-status">Browser Status: Visible and Running</div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
