@@ -34,3 +34,9 @@ This project has been extended with an Intelligent Form Automation Agent powered
   - `system.js`: The execution engine binding Playwright to the Agent.
 - **`src/backend/queue.js`**: Dispatches 'nlp' jobs to the new system.
 - **`src/frontend/app.js`**: Connects the chat UI to the backend API.
+
+Sample Demo video with Claude + Form automation:
+
+https://github.com/user-attachments/assets/330baf96-cc61-44af-a063-cc13425e0151
+
+
